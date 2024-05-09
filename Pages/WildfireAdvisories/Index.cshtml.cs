@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using CIDM_3312___Final_Project.Models;
 
@@ -12,50 +13,57 @@ namespace CIDM_3312___Final_Project.Pages.WildfireAdvisories
     public class IndexModel : PageModel
     {
         private readonly CIDM_3312___Final_Project.Models.AppDbContext _context;
+        private readonly IConfiguration Configuration;
 
-        public IndexModel(CIDM_3312___Final_Project.Models.AppDbContext context)
+        public IndexModel(CIDM_3312___Final_Project.Models.AppDbContext context, IConfiguration configuration)
         {
             _context = context;
+            Configuration = configuration;
         }
 
         public IList<WildfireAdvisory> WildfireAdvisory { get;set; } = default!;
-
-        [BindProperty(SupportsGet = true)]
-        public int PageNum {get; set;} = 1;
-        public int PageSize {get; set;} = 10;
-        public int RecordsCount {get; set;}
-        [BindProperty(SupportsGet = true)]
-        public int PageMax {get; set;}
-        [BindProperty(SupportsGet = true)]
-        public string SortOrder {get; set;} = string.Empty;
-        [BindProperty]
-        public string CurrentFilter {get; set;} = string.Empty;
         
+        
+        public string? DateSort { get; set; }
+        public string CurrentFilter {get; set;} = string.Empty;
+        public string CurrentSort {get; set;} = string.Empty;
 
-        public async Task OnGetAsync(string SortOrder, string CurrentFilter, string SearchString, int PageNum)
+        public PaginatedList<WildfireAdvisory> WildfireAdvisories {get; set;} = default!;
+
+        public async Task OnGetAsync(string sortOrder, string currentFilter, string searchString, int? pageIndex)
         {
-            if (_context.WildfireAdvisories != null)
+            CurrentSort = sortOrder;
+            DateSort = sortOrder == "first_asc" ? "first_desc" : "first_asc";
+            if (searchString != null)
             {
-                
-                CurrentFilter = SearchString;
-                var query = _context.WildfireAdvisories.Include(w => w.RegionWildfireAdvisories!).ThenInclude(rw => rw.Region).Select(p => p);
+                pageIndex = 1;
+            }
+            else
+            {
+               searchString = currentFilter;
+            }
+            CurrentFilter = searchString;
+            var query = _context.WildfireAdvisories.Include(w => w.RegionWildfireAdvisories!).ThenInclude(rw => rw.Region).Select(p => p);
 
-                if (!String.IsNullOrEmpty(CurrentFilter))
-                {
-                    query = query.Where(w => w.Title.ToUpper().Contains(SearchString.ToUpper()));
-                }
+            if (!String.IsNullOrEmpty(CurrentFilter))
+            {
+               query = query.Where(w => w.Title.ToUpper().Contains(searchString.ToUpper()));
+            }
                 
-                switch (SortOrder)
-                {
-                    case "first_asc":
-                        query = query.OrderBy(wa => wa.IssueDateAndTime);
-                        break;
-                    case "first_desc":
-                        query = query.OrderByDescending(wa => wa.IssueDateAndTime);
-                        break;    
-                }
+            switch (sortOrder)
+            {
+                case "first_asc":
+                    query = query.OrderBy(wa => wa.IssueDateAndTime);
+                    break;
+                case "first_desc":
+                    query = query.OrderByDescending(wa => wa.IssueDateAndTime);
+                    break;    
+            }
+
+            var pageSize = Configuration.GetValue("PageSize", 10);
+            WildfireAdvisories = await PaginatedList<WildfireAdvisory>.CreateAsync(query.AsNoTracking(), pageIndex ?? 1, pageSize);
                 
-                WildfireAdvisory = await query.Skip((PageNum-1)*PageSize).Take(PageSize).ToListAsync();
+                /*WildfireAdvisory = await query.Skip((PageNum-1)*PageSize).Take(PageSize).ToListAsync();
                 RecordsCount = _context.WildfireAdvisories.Include(w => w.RegionWildfireAdvisories!).ThenInclude(rw => rw.Region).Count();
                 if (RecordsCount % PageSize == 0)
                 {
@@ -65,8 +73,7 @@ namespace CIDM_3312___Final_Project.Pages.WildfireAdvisories
                 {
                     int sub = RecordsCount % PageSize;
                     PageMax = ((RecordsCount - sub)/PageSize)+1;
-                }
-            }
+                }*/
         }
     }
 }
