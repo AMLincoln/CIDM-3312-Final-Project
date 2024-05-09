@@ -10,7 +10,7 @@ namespace CIDM_3312___Final_Project.Models
         public int WildfireAdvisoryId {get; set;}
         [Required]
         [Display(Name = "Title")]
-        public string? Title {get; set;}
+        public string Title {get; set;} = string.Empty;
         [Required]
         [Display(Name = "Effective date and time")]
         public DateTime IssueDateAndTime {get; set;}

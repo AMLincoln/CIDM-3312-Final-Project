@@ -10,6 +10,16 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Search:
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-primary" /> |
+            <a asp-page="./Index">Back to full List</a>
+        </p>
+    </div>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -17,7 +27,15 @@
                 @Html.DisplayNameFor(model => model.WildfireAdvisory[0].Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.WildfireAdvisory[0].IssueDateAndTime)
+                @{
+                    var firstSort = "first_asc";
+                    if (Model.SortOrder == "first_asc")
+                    {
+                        firstSort = "first_desc";
+                    }
+                }
+                <a asp-page="./Index" asp-route-SortOrder="@firstSort" asp-route-CurrentFilter="@Model.CurrentFilter">
+                @Html.DisplayNameFor(model => model.WildfireAdvisory[0].IssueDateAndTime)</a>
             </th>
             <th>Region</th>
             <th></th>
@@ -62,10 +80,9 @@
         nextDisabled = "disabled";
     }
 }
-<nav aria-label="Page navigation example">
+<nav aria-label="Page navigation">
     <ul class="pagination">
-        <!-- FIXME: These buttons will forget your current sort order! -->
-        <li class="page-item @prevDisabled"><a class="page-link" asp-page="./Index" asp-route-PageNum="@(Model.PageNum - 1)">Previous</a></li>
-        <li class="page-item @nextDisabled"><a class="page-link" asp-page="./Index" asp-route-PageNum="@(Model.PageNum + 1)">Next</a></li>
+        <li class="page-item @prevDisabled"><a class="page-link" asp-page="./Index" asp-route-SortOrder="@firstSort" asp-route-PageNum="@(Model.PageNum - 1)" asp-route-CurrentFilter="@Model.CurrentFilter">Previous</a></li>
+        <li class="page-item @nextDisabled"><a class="page-link" asp-page="./Index" asp-route-SortOrder="@firstSort" asp-route-PageNum="@(Model.PageNum + 1)" asp-route-CurrentFilter="@Model.CurrentFilter">Next</a></li>
     </ul>
 </nav>
