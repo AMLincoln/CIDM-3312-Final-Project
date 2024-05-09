@@ -19,17 +19,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.WildfireAdvisory[0].IssueDateAndTime)
             </th>
-            @*
-            <th>
-                @Html.DisplayNameFor(model => model.WildfireAdvisory[0].Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.WildfireAdvisory[0].IssuingAuthority)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.WildfireAdvisory[0].ContactPhoneNumber)
-            </th>
-            *@
             <th>Region</th>
             <th></th>
         </tr>
@@ -43,17 +32,6 @@
             <td>
                 @Html.DisplayFor(modelItem => item.IssueDateAndTime)
             </td>
-            @*
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IssuingAuthority)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ContactPhoneNumber)
-            </td>
-            *@
             <td>
             @foreach (var region in item.RegionWildfireAdvisories!)
             {
@@ -69,3 +47,25 @@
 }
     </tbody>
 </table>
+<hr/>
+@{
+    var prevDisabled = "";
+    if (Model.PageNum <=1)
+    {
+        prevDisabled = "disabled";
+    }
+}
+@{
+    var nextDisabled = "";
+    if (Model.PageNum >= Model.PageMax)
+    {
+        nextDisabled = "disabled";
+    }
+}
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <!-- FIXME: These buttons will forget your current sort order! -->
+        <li class="page-item @prevDisabled"><a class="page-link" asp-page="./Index" asp-route-PageNum="@(Model.PageNum - 1)">Previous</a></li>
+        <li class="page-item @nextDisabled"><a class="page-link" asp-page="./Index" asp-route-PageNum="@(Model.PageNum + 1)">Next</a></li>
+    </ul>
+</nav>

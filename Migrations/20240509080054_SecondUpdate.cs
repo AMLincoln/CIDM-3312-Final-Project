@@ -5,7 +5,7 @@
 namespace CIDM_3312___Final_Project.Migrations
 {
     /// <inheritdoc />
-    public partial class FifthUpdate : Migration
+    public partial class SecondUpdate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CIDM_3312___Final_Project.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240509063515_SecondMigration")]
-    partial class SecondMigration
+    [Migration("20240509071940_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,9 +32,6 @@ namespace CIDM_3312___Final_Project.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("RiskLevel")
-                        .HasColumnType("TEXT");
-
                     b.HasKey("RegionId");
 
                     b.HasIndex("MacroRegionId");
@@ -46,210 +43,180 @@ namespace CIDM_3312___Final_Project.Migrations
                         {
                             RegionId = 1,
                             MacroRegionId = 30,
-                            Name = "Randall County, TX",
-                            RiskLevel = "Low"
+                            Name = "Randall County, TX"
                         },
                         new
                         {
                             RegionId = 2,
                             MacroRegionId = 1,
-                            Name = "Canyon, TX",
-                            RiskLevel = "Low"
+                            Name = "Canyon, TX"
                         },
                         new
                         {
                             RegionId = 3,
                             MacroRegionId = 1,
-                            Name = "Palo Duro Canyon State Park, TX",
-                            RiskLevel = "Low"
+                            Name = "Palo Duro Canyon State Park, TX"
                         },
                         new
                         {
                             RegionId = 4,
                             MacroRegionId = 1,
-                            Name = "Zita, TX",
-                            RiskLevel = "Low"
+                            Name = "Zita, TX"
                         },
                         new
                         {
                             RegionId = 5,
                             MacroRegionId = 1,
-                            Name = "Lake Tanglewood, TX",
-                            RiskLevel = "Low"
+                            Name = "Lake Tanglewood, TX"
                         },
                         new
                         {
                             RegionId = 6,
                             MacroRegionId = 1,
-                            Name = "Umbarger, TX",
-                            RiskLevel = "Low"
+                            Name = "Umbarger, TX"
                         },
                         new
                         {
                             RegionId = 7,
                             MacroRegionId = 30,
-                            Name = "Potter County, TX",
-                            RiskLevel = "Low"
+                            Name = "Potter County, TX"
                         },
                         new
                         {
                             RegionId = 8,
                             MacroRegionId = 7,
-                            Name = "Amarillo, TX",
-                            RiskLevel = "Low"
+                            Name = "Amarillo, TX"
                         },
                         new
                         {
                             RegionId = 9,
                             MacroRegionId = 7,
-                            Name = "Gentry, TX",
-                            RiskLevel = "Low"
+                            Name = "Gentry, TX"
                         },
                         new
                         {
                             RegionId = 10,
                             MacroRegionId = 7,
-                            Name = "Gluck, TX",
-                            RiskLevel = "Low"
+                            Name = "Gluck, TX"
                         },
                         new
                         {
                             RegionId = 11,
                             MacroRegionId = 7,
-                            Name = "Ady, TX",
-                            RiskLevel = "Low"
+                            Name = "Ady, TX"
                         },
                         new
                         {
                             RegionId = 12,
                             MacroRegionId = 7,
-                            Name = "Bishop Hills, TX",
-                            RiskLevel = "Low"
+                            Name = "Bishop Hills, TX"
                         },
                         new
                         {
                             RegionId = 13,
                             MacroRegionId = 30,
-                            Name = "Carson County, TX",
-                            RiskLevel = "Medium"
+                            Name = "Carson County, TX"
                         },
                         new
                         {
                             RegionId = 14,
                             MacroRegionId = 13,
-                            Name = "Skellytown, TX",
-                            RiskLevel = "Medium"
+                            Name = "Skellytown, TX"
                         },
                         new
                         {
                             RegionId = 15,
                             MacroRegionId = 13,
-                            Name = "Wilhelm, TX",
-                            RiskLevel = "Low"
+                            Name = "Wilhelm, TX"
                         },
                         new
                         {
                             RegionId = 16,
                             MacroRegionId = 13,
-                            Name = "Abell, TX",
-                            RiskLevel = "Low"
+                            Name = "Abell, TX"
                         },
                         new
                         {
                             RegionId = 17,
                             MacroRegionId = 13,
-                            Name = "Panhandle, TX",
-                            RiskLevel = "Medium"
+                            Name = "Panhandle, TX"
                         },
                         new
                         {
                             RegionId = 18,
                             MacroRegionId = 13,
-                            Name = "White Deer, TX",
-                            RiskLevel = "Medium"
+                            Name = "White Deer, TX"
                         },
                         new
                         {
                             RegionId = 19,
                             MacroRegionId = 30,
-                            Name = "Armstrong County, TX",
-                            RiskLevel = "Medium"
+                            Name = "Armstrong County, TX"
                         },
                         new
                         {
                             RegionId = 20,
                             MacroRegionId = 19,
-                            Name = "Washburn, TX",
-                            RiskLevel = "Medium"
+                            Name = "Washburn, TX"
                         },
                         new
                         {
                             RegionId = 21,
                             MacroRegionId = 19,
-                            Name = "Claude, TX",
-                            RiskLevel = "Medium"
+                            Name = "Claude, TX"
                         },
                         new
                         {
                             RegionId = 22,
                             MacroRegionId = 19,
-                            Name = "Wayside, TX",
-                            RiskLevel = "Medium"
+                            Name = "Wayside, TX"
                         },
                         new
                         {
                             RegionId = 23,
                             MacroRegionId = 19,
-                            Name = "Goodnight, TX",
-                            RiskLevel = "High"
+                            Name = "Goodnight, TX"
                         },
                         new
                         {
                             RegionId = 24,
                             MacroRegionId = 30,
-                            Name = "Moore County, TX",
-                            RiskLevel = "High"
+                            Name = "Moore County, TX"
                         },
                         new
                         {
                             RegionId = 25,
                             MacroRegionId = 24,
-                            Name = "Dumas, TX",
-                            RiskLevel = "High"
+                            Name = "Dumas, TX"
                         },
                         new
                         {
                             RegionId = 26,
                             MacroRegionId = 24,
-                            Name = "Masterson, TX",
-                            RiskLevel = "High"
+                            Name = "Masterson, TX"
                         },
                         new
                         {
                             RegionId = 27,
                             MacroRegionId = 24,
-                            Name = "Bryden, TX",
-                            RiskLevel = "High"
+                            Name = "Bryden, TX"
                         },
                         new
                         {
                             RegionId = 28,
                             MacroRegionId = 24,
-                            Name = "Sunray, TX",
-                            RiskLevel = "High"
+                            Name = "Sunray, TX"
                         },
                         new
                         {
                             RegionId = 29,
                             MacroRegionId = 24,
-                            Name = "Cactus, TX",
-                            RiskLevel = "High"
+                            Name = "Cactus, TX"
                         },
                         new
                         {
                             RegionId = 30,
-                            Name = "Texas Panhandle",
-                            RiskLevel = "Medium"
+                            Name = "Texas Panhandle"
                         });
                 });
 
