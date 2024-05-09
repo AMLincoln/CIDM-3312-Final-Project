@@ -38,6 +38,28 @@
                 <input asp-for="WildfireAdvisory.ContactPhoneNumber" class="form-control" />
                 <span asp-validation-for="WildfireAdvisory.ContactPhoneNumber" class="text-danger"></span>
             </div>
+            <label class="control-label">Region(s)</label>
+            <select asp-items="Model.RegionsDropDown" asp-for="RegionIdToAdd" class = "form-control">
+                <option value = "">Select a region</option>
+            </select>
+            <span asp-validation-for="RegionIdToAdd" class="text-danger"></span>
+            <br>
+            <select asp-items="Model.RegionsDropDown2" asp-for="RegionIdToAdd2" class = "form-control">
+                <option value = "">Select a region</option>
+            </select>
+            <br>
+            <select asp-items="Model.RegionsDropDown3" asp-for="RegionIdToAdd3" class = "form-control">
+                <option value = "">Select a region</option>
+            </select>
+            <br>
+            <select asp-items="Model.RegionsDropDown4" asp-for="RegionIdToAdd4" class = "form-control">
+                <option value = "">Select a region</option>
+            </select>
+            <br>
+            <select asp-items="Model.RegionsDropDown5" asp-for="RegionIdToAdd5" class = "form-control">
+                <option value = "">Select a region</option>
+            </select>
+            <br>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
