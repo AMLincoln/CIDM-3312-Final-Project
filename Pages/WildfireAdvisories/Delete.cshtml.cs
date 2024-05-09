@@ -28,7 +28,7 @@ namespace CIDM_3312___Final_Project.Pages.WildfireAdvisories
                 return NotFound();
             }
 
-            var wildfireadvisory = await _context.WildfireAdvisories.FirstOrDefaultAsync(m => m.WildfireAdvisoryId == id);
+            var wildfireadvisory = await _context.WildfireAdvisories.Include(w => w.RegionWildfireAdvisories!).ThenInclude(rw => rw.Region).FirstOrDefaultAsync(m => m.WildfireAdvisoryId == id);
 
             if (wildfireadvisory == null)
             {
