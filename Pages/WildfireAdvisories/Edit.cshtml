@@ -39,6 +39,30 @@
                 <input asp-for="WildfireAdvisory.ContactPhoneNumber" class="form-control" />
                 <span asp-validation-for="WildfireAdvisory.ContactPhoneNumber" class="text-danger"></span>
             </div>
+            <br/>
+            <div class="form-group">
+                <label class="control-label">Region(s):</label>
+                <br/>
+                <br/>
+                @foreach(var region in Model.WildfireAdvisory.RegionWildfireAdvisories!)
+                {
+                    <form method="post">
+                    <input type="hidden" asp-for="RegionIdToDelete" value="@region.Region.RegionId" />
+                        @region.Region.Name &emsp; <input type="submit" Value="Remove" class="btn btn-danger btn-sm my-1" asp-page-handler="RemoveRegion" asp-route-id="@Model.WildfireAdvisory.WildfireAdvisoryId">
+                    </form>
+                }
+            </div> 
+        </form>
+        <br/>
+        <form method="post">
+            <input type="hidden" asp-for="WildfireAdvisory.WildfireAdvisoryId"/>
+            <div class="form-group">
+                <select asp-items="Model.RegionsDropDown" asp-for="RegionIdToAdd" class="form-control">
+                    <option value="">--Select a region</option>
+                </select>
+                <span asp-validation-for="RegionIdToAdd" class="text-danger"></span>
+            </div>
+            <br>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

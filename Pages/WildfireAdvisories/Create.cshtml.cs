@@ -13,11 +13,13 @@ namespace CIDM_3312___Final_Project.Pages.WildfireAdvisories
 {
     public class CreateModel : PageModel
     {
+        private readonly ILogger<CreateModel> _logger;
         private readonly CIDM_3312___Final_Project.Models.AppDbContext _context;
 
-        public CreateModel(CIDM_3312___Final_Project.Models.AppDbContext context)
+        public CreateModel(CIDM_3312___Final_Project.Models.AppDbContext context, ILogger<CreateModel> logger)
         {
             _context = context;
+            _logger = logger;
         }
         public List<Region> Regions {get; set;} = default!;
         public SelectList RegionsDropDown {get; set;} = default!;
@@ -51,10 +53,8 @@ namespace CIDM_3312___Final_Project.Pages.WildfireAdvisories
         [BindProperty]
         public WildfireAdvisory WildfireAdvisory { get; set; } = default!;
 
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-
             Regions = _context.Regions.ToList();
             RegionsDropDown = new SelectList(Regions, "RegionId", "Name");
             RegionsDropDown2 = new SelectList(Regions, "RegionId", "Name");
@@ -95,6 +95,7 @@ namespace CIDM_3312___Final_Project.Pages.WildfireAdvisories
             }
             catch
             {
+                _logger.LogWarning("Wildfire advisory creation failed!");
                 return Page();
             }
             
