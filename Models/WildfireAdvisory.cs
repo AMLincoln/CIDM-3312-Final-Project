@@ -1,17 +1,26 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace CIDM_3312___Final_Project.Models
 {
     public class WildfireAdvisory
     {
         public int WildfireAdvisoryId {get; set;}
+        [Required]
         public string? Title {get; set;}
+        [Required]
+        [Display(Name = "Effective Date and Time")]
         public DateTime IssueDateAndTime {get; set;}
+        [Required]
         public string? Description {get; set;}
-        public string? WildfireAdvisoryStatus {get; set;}
+        [Required]
+        [Display(Name = "Issuer")]
         public string? IssuingAuthority {get; set;}
+        [Required]
+        [Phone]
+        [Display(Name = "Contact")]
         public string? ContactPhoneNumber {get; set;}
         public List<RegionWildfireAdvisory> RegionWildfireAdvisories {get; set;} = null!;
     }

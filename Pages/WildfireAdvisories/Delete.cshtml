@@ -1,0 +1,52 @@
+@page
+@model CIDM_3312___Final_Project.Pages.WildfireAdvisories.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>WildfireAdvisory</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.WildfireAdvisory.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.WildfireAdvisory.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.WildfireAdvisory.IssueDateAndTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.WildfireAdvisory.IssueDateAndTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.WildfireAdvisory.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.WildfireAdvisory.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.WildfireAdvisory.IssuingAuthority)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.WildfireAdvisory.IssuingAuthority)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.WildfireAdvisory.ContactPhoneNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.WildfireAdvisory.ContactPhoneNumber)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="WildfireAdvisory.WildfireAdvisoryId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

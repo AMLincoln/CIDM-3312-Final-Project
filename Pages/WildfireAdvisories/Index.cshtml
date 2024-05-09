@@ -1,0 +1,71 @@
+@page
+@model CIDM_3312___Final_Project.Pages.WildfireAdvisories.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.WildfireAdvisory[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WildfireAdvisory[0].IssueDateAndTime)
+            </th>
+            @*
+            <th>
+                @Html.DisplayNameFor(model => model.WildfireAdvisory[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WildfireAdvisory[0].IssuingAuthority)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WildfireAdvisory[0].ContactPhoneNumber)
+            </th>
+            *@
+            <th>Region</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.WildfireAdvisory) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IssueDateAndTime)
+            </td>
+            @*
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IssuingAuthority)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactPhoneNumber)
+            </td>
+            *@
+            <td>
+            @foreach (var region in item.RegionWildfireAdvisories!)
+            {
+                @region.Region.Name <br>
+            }
+            </td>
+            <td>
+                <a asp-page="./Details" asp-route-id="@item.WildfireAdvisoryId">Details</a> |
+                <a asp-page="./Edit" asp-route-id="@item.WildfireAdvisoryId">Edit</a> |
+                <a asp-page="./Delete" asp-route-id="@item.WildfireAdvisoryId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

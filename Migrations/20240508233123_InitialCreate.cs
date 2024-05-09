@@ -39,12 +39,11 @@ namespace CIDM_3312___Final_Project.Migrations
                 {
                     WildfireAdvisoryId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Title = table.Column<string>(type: "TEXT", nullable: true),
+                    Title = table.Column<string>(type: "TEXT", nullable: false),
                     IssueDateAndTime = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Description = table.Column<string>(type: "TEXT", nullable: true),
-                    WildfireAdvisoryStatus = table.Column<string>(type: "TEXT", nullable: true),
-                    IssuingAuthority = table.Column<string>(type: "TEXT", nullable: true),
-                    ContactPhoneNumber = table.Column<string>(type: "TEXT", nullable: true)
+                    Description = table.Column<string>(type: "TEXT", nullable: false),
+                    IssuingAuthority = table.Column<string>(type: "TEXT", nullable: false),
+                    ContactPhoneNumber = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -129,15 +128,36 @@ namespace CIDM_3312___Final_Project.Migrations
                 columns: new[] { "RegionId", "MacroRegionId", "Name", "RiskLevel" },
                 values: new object[,]
                 {
-                    { 1, null, "Randall County", "Medium" },
-                    { 7, null, "Potter County", "Low" },
-                    { 2, 1, "Canyon, TX", "High" },
-                    { 3, 1, "Palo Duro Canyon State Park", "Low" },
-                    { 4, 1, "Zita, TX", "Medium" },
-                    { 5, 1, "Lake Tanglewood", "Medium" },
+                    { 30, null, "Texas Panhandle", "Medium" },
+                    { 1, 30, "Randall County, TX", "Low" },
+                    { 7, 30, "Potter County, TX", "Low" },
+                    { 13, 30, "Carson County, TX", "Medium" },
+                    { 19, 30, "Armstrong County, TX", "Medium" },
+                    { 24, 30, "Moore County, TX", "High" },
+                    { 2, 1, "Canyon, TX", "Low" },
+                    { 3, 1, "Palo Duro Canyon State Park, TX", "Low" },
+                    { 4, 1, "Zita, TX", "Low" },
+                    { 5, 1, "Lake Tanglewood, TX", "Low" },
                     { 6, 1, "Umbarger, TX", "Low" },
                     { 8, 7, "Amarillo, TX", "Low" },
-                    { 9, 7, "Alibates Flint Quarries National Monument", "Low" }
+                    { 9, 7, "Gentry, TX", "Low" },
+                    { 10, 7, "Gluck, TX", "Low" },
+                    { 11, 7, "Ady, TX", "Low" },
+                    { 12, 7, "Bishop Hills, TX", "Low" },
+                    { 14, 13, "Skellytown, TX", "Medium" },
+                    { 15, 13, "Wilhelm, TX", "Low" },
+                    { 16, 13, "Abell, TX", "Low" },
+                    { 17, 13, "Panhandle, TX", "Medium" },
+                    { 18, 13, "White Deer, TX", "Medium" },
+                    { 20, 19, "Washburn, TX", "Medium" },
+                    { 21, 19, "Claude, TX", "Medium" },
+                    { 22, 19, "Wayside, TX", "Medium" },
+                    { 23, 19, "Goodnight, TX", "High" },
+                    { 25, 24, "Dumas, TX", "High" },
+                    { 26, 24, "Masterson, TX", "High" },
+                    { 27, 24, "Bryden, TX", "High" },
+                    { 28, 24, "Sunray, TX", "High" },
+                    { 29, 24, "Cactus, TX", "High" }
                 });
 
             migrationBuilder.CreateIndex(

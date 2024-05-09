@@ -42,21 +42,22 @@ namespace CIDM_3312___Final_Project.Migrations
                         new
                         {
                             RegionId = 1,
-                            Name = "Randall County",
-                            RiskLevel = "Medium"
+                            MacroRegionId = 30,
+                            Name = "Randall County, TX",
+                            RiskLevel = "Low"
                         },
                         new
                         {
                             RegionId = 2,
                             MacroRegionId = 1,
                             Name = "Canyon, TX",
-                            RiskLevel = "High"
+                            RiskLevel = "Low"
                         },
                         new
                         {
                             RegionId = 3,
                             MacroRegionId = 1,
-                            Name = "Palo Duro Canyon State Park",
+                            Name = "Palo Duro Canyon State Park, TX",
                             RiskLevel = "Low"
                         },
                         new
@@ -64,14 +65,14 @@ namespace CIDM_3312___Final_Project.Migrations
                             RegionId = 4,
                             MacroRegionId = 1,
                             Name = "Zita, TX",
-                            RiskLevel = "Medium"
+                            RiskLevel = "Low"
                         },
                         new
                         {
                             RegionId = 5,
                             MacroRegionId = 1,
-                            Name = "Lake Tanglewood",
-                            RiskLevel = "Medium"
+                            Name = "Lake Tanglewood, TX",
+                            RiskLevel = "Low"
                         },
                         new
                         {
@@ -83,7 +84,8 @@ namespace CIDM_3312___Final_Project.Migrations
                         new
                         {
                             RegionId = 7,
-                            Name = "Potter County",
+                            MacroRegionId = 30,
+                            Name = "Potter County, TX",
                             RiskLevel = "Low"
                         },
                         new
@@ -97,8 +99,154 @@ namespace CIDM_3312___Final_Project.Migrations
                         {
                             RegionId = 9,
                             MacroRegionId = 7,
-                            Name = "Alibates Flint Quarries National Monument",
+                            Name = "Gentry, TX",
                             RiskLevel = "Low"
+                        },
+                        new
+                        {
+                            RegionId = 10,
+                            MacroRegionId = 7,
+                            Name = "Gluck, TX",
+                            RiskLevel = "Low"
+                        },
+                        new
+                        {
+                            RegionId = 11,
+                            MacroRegionId = 7,
+                            Name = "Ady, TX",
+                            RiskLevel = "Low"
+                        },
+                        new
+                        {
+                            RegionId = 12,
+                            MacroRegionId = 7,
+                            Name = "Bishop Hills, TX",
+                            RiskLevel = "Low"
+                        },
+                        new
+                        {
+                            RegionId = 13,
+                            MacroRegionId = 30,
+                            Name = "Carson County, TX",
+                            RiskLevel = "Medium"
+                        },
+                        new
+                        {
+                            RegionId = 14,
+                            MacroRegionId = 13,
+                            Name = "Skellytown, TX",
+                            RiskLevel = "Medium"
+                        },
+                        new
+                        {
+                            RegionId = 15,
+                            MacroRegionId = 13,
+                            Name = "Wilhelm, TX",
+                            RiskLevel = "Low"
+                        },
+                        new
+                        {
+                            RegionId = 16,
+                            MacroRegionId = 13,
+                            Name = "Abell, TX",
+                            RiskLevel = "Low"
+                        },
+                        new
+                        {
+                            RegionId = 17,
+                            MacroRegionId = 13,
+                            Name = "Panhandle, TX",
+                            RiskLevel = "Medium"
+                        },
+                        new
+                        {
+                            RegionId = 18,
+                            MacroRegionId = 13,
+                            Name = "White Deer, TX",
+                            RiskLevel = "Medium"
+                        },
+                        new
+                        {
+                            RegionId = 19,
+                            MacroRegionId = 30,
+                            Name = "Armstrong County, TX",
+                            RiskLevel = "Medium"
+                        },
+                        new
+                        {
+                            RegionId = 20,
+                            MacroRegionId = 19,
+                            Name = "Washburn, TX",
+                            RiskLevel = "Medium"
+                        },
+                        new
+                        {
+                            RegionId = 21,
+                            MacroRegionId = 19,
+                            Name = "Claude, TX",
+                            RiskLevel = "Medium"
+                        },
+                        new
+                        {
+                            RegionId = 22,
+                            MacroRegionId = 19,
+                            Name = "Wayside, TX",
+                            RiskLevel = "Medium"
+                        },
+                        new
+                        {
+                            RegionId = 23,
+                            MacroRegionId = 19,
+                            Name = "Goodnight, TX",
+                            RiskLevel = "High"
+                        },
+                        new
+                        {
+                            RegionId = 24,
+                            MacroRegionId = 30,
+                            Name = "Moore County, TX",
+                            RiskLevel = "High"
+                        },
+                        new
+                        {
+                            RegionId = 25,
+                            MacroRegionId = 24,
+                            Name = "Dumas, TX",
+                            RiskLevel = "High"
+                        },
+                        new
+                        {
+                            RegionId = 26,
+                            MacroRegionId = 24,
+                            Name = "Masterson, TX",
+                            RiskLevel = "High"
+                        },
+                        new
+                        {
+                            RegionId = 27,
+                            MacroRegionId = 24,
+                            Name = "Bryden, TX",
+                            RiskLevel = "High"
+                        },
+                        new
+                        {
+                            RegionId = 28,
+                            MacroRegionId = 24,
+                            Name = "Sunray, TX",
+                            RiskLevel = "High"
+                        },
+                        new
+                        {
+                            RegionId = 29,
+                            MacroRegionId = 24,
+                            Name = "Cactus, TX",
+                            RiskLevel = "High"
+                        },
+                        new
+                        {
+                            RegionId = 30,
+                            Name = "Texas Panhandle",
+                            RiskLevel = "Medium"
                         });
                 });
 
@@ -189,21 +337,22 @@ namespace CIDM_3312___Final_Project.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("ContactPhoneNumber")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("IssueDateAndTime")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("IssuingAuthority")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("WildfireAdvisoryStatus")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("WildfireAdvisoryId");

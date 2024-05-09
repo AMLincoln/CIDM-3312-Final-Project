@@ -1,0 +1,60 @@
+@page
+@model CIDM_3312___Final_Project.Pages.WildfireAdvisories.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>WildfireAdvisory</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.WildfireAdvisory.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.WildfireAdvisory.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.WildfireAdvisory.IssueDateAndTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.WildfireAdvisory.IssueDateAndTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.WildfireAdvisory.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.WildfireAdvisory.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.WildfireAdvisory.IssuingAuthority)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.WildfireAdvisory.IssuingAuthority)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.WildfireAdvisory.ContactPhoneNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.WildfireAdvisory.ContactPhoneNumber)
+        </dd>
+        <dt class="col-sm-2">Regions:</dt>
+        <dd class="col-sm-10">
+            @foreach(var region in Model.WildfireAdvisory.RegionWildfireAdvisories!)
+            {
+                    <p>@region.Region.Name</p>
+            }
+            @*Unbulleted list code taken from https://www.w3schools.com/html/tryit.asp?filename=tryhtml_lists_unordered_none
+            <ul style="list-style-type:none;">
+                
+            </ul>*@
+        </dd>   
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.WildfireAdvisory.WildfireAdvisoryId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
