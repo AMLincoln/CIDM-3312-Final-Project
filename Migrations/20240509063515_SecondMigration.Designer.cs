@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CIDM_3312___Final_Project.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240508233123_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240509063515_SecondMigration")]
+    partial class SecondMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -275,19 +275,20 @@ namespace CIDM_3312___Final_Project.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(500)
                         .HasColumnType("TEXT");
 
-                    b.Property<DateOnly>("DiscoveryDate")
+                    b.Property<DateTime>("DiscoveryDateandTime")
                         .HasColumnType("TEXT");
 
-                    b.Property<TimeOnly>("DiscoveryTime")
+                    b.Property<string>("Location")
+                        .IsRequired()
+                        .HasMaxLength(500)
                         .HasColumnType("TEXT");
 
                     b.Property<int>("RegionId")
                         .HasColumnType("INTEGER");
-
-                    b.Property<string>("ReportStatus")
-                        .HasColumnType("TEXT");
 
                     b.Property<string>("ReporterEmail")
                         .HasColumnType("TEXT");
@@ -295,10 +296,16 @@ namespace CIDM_3312___Final_Project.Migrations
                     b.Property<string>("ReporterName")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("String")
+                    b.Property<string>("ReporterPhoneNumber")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("RiskStatus")
+                        .IsRequired()
+                        .HasMaxLength(30)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Type")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("ReportId");

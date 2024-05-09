@@ -56,13 +56,13 @@ namespace CIDM_3312___Final_Project.Migrations
                 {
                     ReportId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Type = table.Column<string>(type: "TEXT", nullable: true),
-                    Description = table.Column<string>(type: "TEXT", nullable: true),
-                    String = table.Column<string>(type: "TEXT", nullable: true),
-                    DiscoveryDate = table.Column<DateOnly>(type: "TEXT", nullable: false),
-                    DiscoveryTime = table.Column<TimeOnly>(type: "TEXT", nullable: false),
-                    ReportStatus = table.Column<string>(type: "TEXT", nullable: true),
+                    Type = table.Column<string>(type: "TEXT", nullable: false),
+                    Description = table.Column<string>(type: "TEXT", maxLength: 500, nullable: false),
+                    Location = table.Column<string>(type: "TEXT", maxLength: 500, nullable: false),
+                    DiscoveryDateandTime = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    RiskStatus = table.Column<string>(type: "TEXT", maxLength: 30, nullable: false),
                     ReporterName = table.Column<string>(type: "TEXT", nullable: true),
+                    ReporterPhoneNumber = table.Column<string>(type: "TEXT", nullable: true),
                     ReporterEmail = table.Column<string>(type: "TEXT", nullable: true),
                     RegionId = table.Column<int>(type: "INTEGER", nullable: false)
                 },

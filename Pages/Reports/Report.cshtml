@@ -1,0 +1,95 @@
+@page
+@model CIDM_3312___Final_Project.Pages.Reports.ReportModel
+@{
+    ViewData["Title"] = "Submit a Report";
+}
+
+<h1>Submit a Report</h1>
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="Report.Type" class="control-label"></label>
+                <br/>
+                <select asp-for="Report.Type" asp-items="Model.TypeDropDown" class="form-control">
+                    <option value="">Choose from the following common wildfire risks</option>
+                    <option value="Downed Power Line">Downed Power Line</option> 
+                    <option value="Unattended Campfire">Unattended Campfire</option>
+                    <option value="Unauthorized Debris Burning">Unauthorized Debris Burning</option>
+                    <option value="Damaged Machinery">Damaged Machinery</option>
+                    <option value="Evidence of Recent or Attempted Arson">Evidence of Recent or Attempted Arson</option>
+                    <option value="Pyrotechnics">Pyrotechnics</option>
+                    <option value="Excessive Negligent Cigarette Disposal">Excessive Negligent Cigarette Disposal</option>
+                    <option value="Active Fire">Active Fire</option>
+                    <option value="Other">Other</option>
+                </select>
+                <span asp-validation-for="Report.Type" class="text-danger"></span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <label asp-for="Report.Description" class="control-label"></label>
+                <br/>
+                <input asp-for="Report.Description" class="form-control" />
+                <span asp-validation-for="Report.Description" class="text-danger"></span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <label asp-for="Report.Location" class="control-label"></label>
+                <br/>
+                <input asp-for="Report.Location" class="form-control" />
+                <span asp-validation-for="Report.Location" class="text-danger"></span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <label asp-for="Report.DiscoveryDateandTime" class="control-label"></label>
+                <br/>
+                <input asp-for="Report.DiscoveryDateandTime" class="form-control" />
+                <span asp-validation-for="Report.DiscoveryDateandTime" class="text-danger"></span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <label asp-for="Report.RiskStatus" class="control-label"></label>
+                <br/>
+                <input asp-for="Report.RiskStatus" class="form-control" />
+                <span asp-validation-for="Report.RiskStatus" class="text-danger"></span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <label asp-for="Report.ReporterName" class="control-label"></label>
+                <br/>
+                <input asp-for="Report.ReporterName" class="form-control" />
+                <span asp-validation-for="Report.ReporterName" class="text-danger"></span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <label asp-for="Report.ReporterPhoneNumber" class="control-label"></label>
+                <br/>
+                <input asp-for="Report.ReporterPhoneNumber" class="form-control" />
+                <span asp-validation-for="Report.ReporterPhoneNumber" class="text-danger"></span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <label asp-for="Report.ReporterEmail" class="control-label"></label>
+                <br/>
+                <input asp-for="Report.ReporterEmail" class="form-control" />
+                <span asp-validation-for="Report.ReporterEmail" class="text-danger"></span>
+            </div>
+            <br/>
+            <label class="control-label">Region</label>
+            <select asp-items="Model.RegionsDropDown" asp-for="RegionIdToAdd" class = "form-control">
+                <option value = "">Select a region</option>
+            </select>
+            <span asp-validation-for="RegionIdToAdd" class="text-danger"></span>
+            <br/>
+            <div class="form-group">
+                <input type="submit" value="Submit Report" class="btn btn-primary" />
+            </div>
+            <br/>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

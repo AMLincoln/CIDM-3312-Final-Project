@@ -9,18 +9,20 @@ namespace CIDM_3312___Final_Project.Models
     {
         public int WildfireAdvisoryId {get; set;}
         [Required]
+        [Display(Name = "Title:")]
         public string? Title {get; set;}
         [Required]
-        [Display(Name = "Effective Date and Time")]
+        [Display(Name = "Effective date and time:")]
         public DateTime IssueDateAndTime {get; set;}
         [Required]
+        [Display(Name = "Description:")]
         public string? Description {get; set;}
         [Required]
-        [Display(Name = "Issuer")]
+        [Display(Name = "Issuer:")]
         public string? IssuingAuthority {get; set;}
         [Required]
         [Phone]
-        [Display(Name = "Contact")]
+        [Display(Name = "Contact:")]
         public string? ContactPhoneNumber {get; set;}
         public List<RegionWildfireAdvisory> RegionWildfireAdvisories {get; set;} = null!;
     }
