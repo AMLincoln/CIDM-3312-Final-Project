@@ -40,9 +40,13 @@ button.accept-policy {
 }
 
 .footer {
-  position: absolute;
+  position: left;
   bottom: 0;
   width: 100%;
   white-space: nowrap;
   line-height: 60px;
+}
+#wrapper, img{
+  width:100%;
+  height: 100%;
 }

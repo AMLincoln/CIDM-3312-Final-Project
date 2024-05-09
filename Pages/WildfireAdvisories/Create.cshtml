@@ -15,7 +15,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="WildfireAdvisory.Title" class="control-label"></label>
-                <input asp-for="WildfireAdvisory.Title" class="form-control" />
+                <input asp-for="WildfireAdvisory.Title" class="form-control" placeholder="Enter the title of the advisory" />
                 <span asp-validation-for="WildfireAdvisory.Title" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -25,17 +25,17 @@
             </div>
             <div class="form-group">
                 <label asp-for="WildfireAdvisory.Description" class="control-label"></label>
-                <input asp-for="WildfireAdvisory.Description" class="form-control" />
+                <input asp-for="WildfireAdvisory.Description" class="form-control" placeholder="Enter the text of the advisory" />
                 <span asp-validation-for="WildfireAdvisory.Description" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="WildfireAdvisory.IssuingAuthority" class="control-label"></label>
-                <input asp-for="WildfireAdvisory.IssuingAuthority" class="form-control" />
+                <input asp-for="WildfireAdvisory.IssuingAuthority" class="form-control" placeholder="Who issued the advisory?" />
                 <span asp-validation-for="WildfireAdvisory.IssuingAuthority" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="WildfireAdvisory.ContactPhoneNumber" class="control-label"></label>
-                <input asp-for="WildfireAdvisory.ContactPhoneNumber" class="form-control" />
+                <input asp-for="WildfireAdvisory.ContactPhoneNumber" class="form-control" placeholder="Provide a public contact number" />
                 <span asp-validation-for="WildfireAdvisory.ContactPhoneNumber" class="text-danger"></span>
             </div>
             <label class="control-label">Region(s)</label>

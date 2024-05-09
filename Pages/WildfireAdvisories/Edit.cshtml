@@ -7,7 +7,6 @@
 
 <h1>Edit</h1>
 
-<h4>WildfireAdvisory</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -15,34 +14,37 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="WildfireAdvisory.WildfireAdvisoryId" />
             <div class="form-group">
-                <label asp-for="WildfireAdvisory.Title" class="control-label"></label>
+                <label asp-for="WildfireAdvisory.Title" class="form-label"></label>
                 <input asp-for="WildfireAdvisory.Title" class="form-control" />
                 <span asp-validation-for="WildfireAdvisory.Title" class="text-danger"></span>
             </div>
+            <br/>
             <div class="form-group">
-                <label asp-for="WildfireAdvisory.IssueDateAndTime" class="control-label"></label>
+                <label asp-for="WildfireAdvisory.IssueDateAndTime" class="form-label"></label>
                 <input asp-for="WildfireAdvisory.IssueDateAndTime" class="form-control" />
                 <span asp-validation-for="WildfireAdvisory.IssueDateAndTime" class="text-danger"></span>
             </div>
+            <br/>
             <div class="form-group">
-                <label asp-for="WildfireAdvisory.Description" class="control-label"></label>
+                <label asp-for="WildfireAdvisory.Description" class="form-label"></label>
                 <input asp-for="WildfireAdvisory.Description" class="form-control" />
                 <span asp-validation-for="WildfireAdvisory.Description" class="text-danger"></span>
             </div>
+            <br/>
             <div class="form-group">
-                <label asp-for="WildfireAdvisory.IssuingAuthority" class="control-label"></label>
+                <label asp-for="WildfireAdvisory.IssuingAuthority" class="form-label"></label>
                 <input asp-for="WildfireAdvisory.IssuingAuthority" class="form-control" />
                 <span asp-validation-for="WildfireAdvisory.IssuingAuthority" class="text-danger"></span>
             </div>
+            <br/>
             <div class="form-group">
-                <label asp-for="WildfireAdvisory.ContactPhoneNumber" class="control-label"></label>
+                <label asp-for="WildfireAdvisory.ContactPhoneNumber" class="form-label"></label>
                 <input asp-for="WildfireAdvisory.ContactPhoneNumber" class="form-control" />
                 <span asp-validation-for="WildfireAdvisory.ContactPhoneNumber" class="text-danger"></span>
             </div>
             <br/>
             <div class="form-group">
-                <label class="control-label">Region(s):</label>
-                <br/>
+                <label class="form-label">Region(s):</label>
                 <br/>
                 @foreach(var region in Model.WildfireAdvisory.RegionWildfireAdvisories!)
                 {
@@ -69,7 +71,7 @@
         </form>
     </div>
 </div>
-
+<br/>
 <div>
     <a asp-page="./Index">Back to List</a>
 </div>

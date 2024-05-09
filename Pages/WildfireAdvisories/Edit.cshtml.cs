@@ -63,7 +63,7 @@ namespace CIDM_3312___Final_Project.Pages.WildfireAdvisories
 
             try
             { 
-                RegionWildfireAdvisory regionToAdd = new RegionWildfireAdvisory {WildfireAdvisoryId = wildfireAdvisory.WildfireAdvisoryId, RegionId = RegionIdToAdd};
+                RegionWildfireAdvisory regionToAdd = new RegionWildfireAdvisory {WildfireAdvisoryId = WildfireAdvisory.WildfireAdvisoryId, RegionId = RegionIdToAdd};
                 _context.Add(regionToAdd);
                 _context.SaveChanges();
                 return RedirectToPage("./Index");

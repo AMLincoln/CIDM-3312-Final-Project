@@ -3,15 +3,14 @@
 @{
     ViewData["Title"] = "Submit a Report";
 }
-
+<br/>
 <h1>Submit a Report</h1>
 <hr/>
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div class="form-group">
-                <label asp-for="Report.Type" class="control-label"></label>
-                <br/>
+                <label asp-for="Report.Type" class="form-label"></label>
                 <select asp-for="Report.Type" asp-items="Model.TypeDropDown" class="form-control">
                     <option value="">Choose from the following common wildfire risks</option>
                     <option value="Downed Power Line">Downed Power Line</option> 
@@ -28,55 +27,49 @@
             </div>
             <br/>
             <div class="form-group">
-                <label asp-for="Report.Description" class="control-label"></label>
-                <br/>
-                <input asp-for="Report.Description" class="form-control" />
+                <label asp-for="Report.Description" class="form-label"></label>
+                <input asp-for="Report.Description" class="form-control" placeholder="Describe the situation as best you can" />
                 <span asp-validation-for="Report.Description" class="text-danger"></span>
             </div>
             <br/>
             <div class="form-group">
-                <label asp-for="Report.Location" class="control-label"></label>
-                <br/>
-                <input asp-for="Report.Location" class="form-control" />
+                <label asp-for="Report.Location" class="form-label"></label>
+                <input asp-for="Report.Location" class="form-control" placeholder="Describe the location is as much detail as possible" />
                 <span asp-validation-for="Report.Location" class="text-danger"></span>
             </div>
             <br/>
             <div class="form-group">
-                <label asp-for="Report.DiscoveryDateandTime" class="control-label"></label>
-                <br/>
+                <label asp-for="Report.DiscoveryDateandTime" class="form-label"></label>
                 <input asp-for="Report.DiscoveryDateandTime" class="form-control" />
                 <span asp-validation-for="Report.DiscoveryDateandTime" class="text-danger"></span>
             </div>
             <br/>
             <div class="form-group">
-                <label asp-for="Report.RiskStatus" class="control-label"></label>
-                <br/>
-                <input asp-for="Report.RiskStatus" class="form-control" />
+                <label asp-for="Report.RiskStatus" class="form-label"></label>
+                <input asp-for="Report.RiskStatus" class="form-control" placeholder="Examples include active, inactive, uncertain" />
                 <span asp-validation-for="Report.RiskStatus" class="text-danger"></span>
             </div>
             <br/>
             <div class="form-group">
-                <label asp-for="Report.ReporterName" class="control-label"></label>
-                <br/>
+                <label asp-for="Report.ReporterName" class="form-label"></label>
                 <input asp-for="Report.ReporterName" class="form-control" />
                 <span asp-validation-for="Report.ReporterName" class="text-danger"></span>
+                <small id="reporterHelp" class="form-text text-muted">We'll never share your personal information with anyone else.</small>
             </div>
             <br/>
             <div class="form-group">
-                <label asp-for="Report.ReporterPhoneNumber" class="control-label"></label>
-                <br/>
+                <label asp-for="Report.ReporterPhoneNumber" class="form-label"></label>
                 <input asp-for="Report.ReporterPhoneNumber" class="form-control" />
                 <span asp-validation-for="Report.ReporterPhoneNumber" class="text-danger"></span>
             </div>
             <br/>
             <div class="form-group">
-                <label asp-for="Report.ReporterEmail" class="control-label"></label>
-                <br/>
-                <input asp-for="Report.ReporterEmail" class="form-control" />
+                <label asp-for="Report.ReporterEmail" class="form-label"></label>
+                <input asp-for="Report.ReporterEmail" class="form-control" placeholder="Enter email" />
                 <span asp-validation-for="Report.ReporterEmail" class="text-danger"></span>
             </div>
             <br/>
-            <label class="control-label">Region</label>
+            <label class="form-label">Region</label>
             <select asp-items="Model.RegionsDropDown" asp-for="RegionIdToAdd" class = "form-control">
                 <option value = "">Select a region</option>
             </select>

@@ -67,26 +67,26 @@ namespace CIDM_3312___Final_Project.Pages.WildfireAdvisories
             try
             {
                 var wildfireAdvisory = await _context.WildfireAdvisories.Where(wa => wa.WildfireAdvisoryId == WildfireAdvisory.WildfireAdvisoryId).FirstOrDefaultAsync(); 
-                RegionWildfireAdvisory regionToAdd = new RegionWildfireAdvisory {WildfireAdvisoryId = wildfireAdvisory.WildfireAdvisoryId, RegionId = RegionIdToAdd};
+                RegionWildfireAdvisory regionToAdd = new RegionWildfireAdvisory {WildfireAdvisoryId = WildfireAdvisory.WildfireAdvisoryId, RegionId = RegionIdToAdd};
                 _context.Add(regionToAdd);
                 if (RegionIdToAdd2 != null)
                 {
-                    RegionWildfireAdvisory regionToAdd2 = new RegionWildfireAdvisory {WildfireAdvisoryId = wildfireAdvisory.WildfireAdvisoryId, RegionId = (int)RegionIdToAdd2};
+                    RegionWildfireAdvisory regionToAdd2 = new RegionWildfireAdvisory {WildfireAdvisoryId = WildfireAdvisory.WildfireAdvisoryId, RegionId = (int)RegionIdToAdd2};
                     _context.Add(regionToAdd2);
                 }
                 if (RegionIdToAdd3 != null)
                 {
-                    RegionWildfireAdvisory regionToAdd3 = new RegionWildfireAdvisory {WildfireAdvisoryId = wildfireAdvisory.WildfireAdvisoryId, RegionId = (int)RegionIdToAdd3};
+                    RegionWildfireAdvisory regionToAdd3 = new RegionWildfireAdvisory {WildfireAdvisoryId = WildfireAdvisory.WildfireAdvisoryId, RegionId = (int)RegionIdToAdd3};
                     _context.Add(regionToAdd3);
                 }
                 if (RegionIdToAdd4 != null)
                 {
-                    RegionWildfireAdvisory regionToAdd4 = new RegionWildfireAdvisory {WildfireAdvisoryId = wildfireAdvisory.WildfireAdvisoryId, RegionId = (int)RegionIdToAdd4};
+                    RegionWildfireAdvisory regionToAdd4 = new RegionWildfireAdvisory {WildfireAdvisoryId = WildfireAdvisory.WildfireAdvisoryId, RegionId = (int)RegionIdToAdd4};
                     _context.Add(regionToAdd4);
                 }
                 if (RegionIdToAdd5 != null)
                 {
-                    RegionWildfireAdvisory regionToAdd5 = new RegionWildfireAdvisory {WildfireAdvisoryId = wildfireAdvisory.WildfireAdvisoryId, RegionId = (int)RegionIdToAdd5};
+                    RegionWildfireAdvisory regionToAdd5 = new RegionWildfireAdvisory {WildfireAdvisoryId = WildfireAdvisory.WildfireAdvisoryId, RegionId = (int)RegionIdToAdd5};
                     _context.Add(regionToAdd5);
                 }         
                 _context.SaveChanges();
