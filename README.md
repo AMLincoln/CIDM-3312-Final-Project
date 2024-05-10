@@ -10,7 +10,7 @@ The following functions have been implemented as of 9 May 2024:
 
 1. Navigation Bar: Home, Wildfire Alerts, Submit a Report, and Privacy
 2. Wildfire Advisories Listing with Sorting, Filtering, and Pagination
-3. Details, Edit, and Delete Options for Wildfire Advisories
+3. Details, partial Edit, and Delete Options for Wildfire Advisories
 4. Report submission functionality
 
 This application is currently configured to use SQLite in conjunction with EF Core for database functionality.
@@ -19,5 +19,8 @@ This application is currently configured to use SQLite in conjunction with EF Co
 
 Features for further development in the future include:
 
-1. Limit wildfire advisory edit and delete to authorized users/ roles
+1. Fix error in WildfireAdvisories/Edit
+2. Limit wildfire advisory edit and delete to authorized users/ roles
+3. Allow users to upload an image with their report
+4. Allow users to select their region and populate all advisories for their region and any macroregions they may belong to
 

@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using CIDM_3312___Final_Project.Models;
 using System.ComponentModel.DataAnnotations;
 
@@ -17,7 +12,6 @@ public class ReportModel : PageModel
 
     [BindProperty]
     public Report Report {get; set;} = default!;
-    // List<string> typeList = new List<string> {"Downed Power Line", "Unattended Campfire", "Unauthorized Debris Burning", "Damaged Machinery", "Evidence of Recent or Attempted Arson", "Pyrotechnics", "Excessive Negligent Cigarette Disposal", "Active Fire", "Other"};
     public SelectList TypeDropDown {get; set;} = default!;
     public ReportModel(AppDbContext context, ILogger<ReportModel> logger)
     {
@@ -26,6 +20,7 @@ public class ReportModel : PageModel
     }
     public List<Region> Regions {get; set;} = default!;
     public SelectList RegionsDropDown {get; set;} = default!;
+    
     [BindProperty]
     [Required]
     [Display(Name = "Region")]
@@ -40,10 +35,6 @@ public class ReportModel : PageModel
     }
     public IActionResult OnPost()
     {
-        /*if (!ModelState.IsValid)
-        {
-            return Page();
-        }*/
         Regions = _context.Regions.ToList();
         RegionsDropDown = new SelectList(Regions, "RegionId", "Name");
         Report.RegionId = RegionIdToAdd;

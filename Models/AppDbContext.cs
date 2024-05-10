@@ -1,4 +1,3 @@
-using System;
 using Microsoft.EntityFrameworkCore;
 
 namespace CIDM_3312___Final_Project.Models
@@ -16,6 +15,7 @@ namespace CIDM_3312___Final_Project.Models
                 .HasKey(r => new {r.WildfireAdvisoryId, r.RegionId});
 
             // Recursive relationship data seeding solution from https://khalidabuhakmeh.com/recursive-data-with-entity-framework-core-and-sql-server
+            // Not needed for current implementation, but will be necessary for features planned for future development beyond this course
             modelBuilder.Entity<Region>()
                 .HasData(new List<Region>()
                 {
@@ -54,10 +54,10 @@ namespace CIDM_3312___Final_Project.Models
         }
 
 
-        public DbSet<WildfireAdvisory> WildfireAdvisories {get; set;} = null!;
-        public DbSet<Region> Regions {get; set;} = null!;
-        public DbSet<Report> Reports {get; set;} = null!;
-        public DbSet<ReportImage> ReportImages {get; set;} = null!;
-        public DbSet<RegionWildfireAdvisory> RegionWildfireAdvisories {get; set;} = null!;
+        public DbSet<WildfireAdvisory> WildfireAdvisories {get; set;} = default!;
+        public DbSet<Region> Regions {get; set;} = default!;
+        public DbSet<Report> Reports {get; set;} = default!;
+        public DbSet<ReportImage> ReportImages {get; set;} = default!;
+        public DbSet<RegionWildfireAdvisory> RegionWildfireAdvisories {get; set;} = default!;
     }
 }

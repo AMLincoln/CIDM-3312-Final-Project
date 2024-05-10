@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+// olution for integrating sorting, filtering, and pagination taken from https://learn.microsoft.com/en-us/aspnet/core/data/ef-rp/sort-filter-page?view=aspnetcore-8.0
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using CIDM_3312___Final_Project.Models;
 
@@ -63,17 +58,6 @@ namespace CIDM_3312___Final_Project.Pages.WildfireAdvisories
             var pageSize = Configuration.GetValue("PageSize", 10);
             WildfireAdvisories = await PaginatedList<WildfireAdvisory>.CreateAsync(query.AsNoTracking(), pageIndex ?? 1, pageSize);
                 
-                /*WildfireAdvisory = await query.Skip((PageNum-1)*PageSize).Take(PageSize).ToListAsync();
-                RecordsCount = _context.WildfireAdvisories.Include(w => w.RegionWildfireAdvisories!).ThenInclude(rw => rw.Region).Count();
-                if (RecordsCount % PageSize == 0)
-                {
-                    PageMax = RecordsCount / PageSize;
-                }
-                else
-                {
-                    int sub = RecordsCount % PageSize;
-                    PageMax = ((RecordsCount - sub)/PageSize)+1;
-                }*/
         }
     }
 }

@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+// Simple redirection page when report submitted
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CIDM_3312___Final_Project.Pages.Reports;

@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+// Solution for integrating sorting, filtering, pagination taken from https://learn.microsoft.com/en-us/aspnet/core/data/ef-rp/sort-filter-page?view=aspnetcore-8.0
 using Microsoft.EntityFrameworkCore;
 
 namespace CIDM_3312___Final_Project

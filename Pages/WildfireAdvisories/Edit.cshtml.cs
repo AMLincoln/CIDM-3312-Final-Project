@@ -50,19 +50,21 @@ namespace CIDM_3312___Final_Project.Pages.WildfireAdvisories
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
+        /* Edit is not fully functional. The error was discovered in testing, but despite hours of attempting to fix the error 
+        and referencing your material and online material, I have been unable to fix it. So I have reverted the code back to the first iteration
+        so  that the program will not crash. Adding and deleting a region from a wildfire advisory is functional, but other fields cannot be updated.
+        */
         public async Task<IActionResult> OnPostAsync()
         {
             var wildfireAdvisory = await _context.WildfireAdvisories.Where(wa => wa.WildfireAdvisoryId == WildfireAdvisory.WildfireAdvisoryId).FirstOrDefaultAsync(); 
             Regions = _context.Regions.ToList();
             RegionsDropDown = new SelectList(Regions, "RegionId", "Name");
            
-            // _context.Attach(WildfireAdvisory).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
             try
             { 
+                // RegionIdToAdd made required to prevent crashing until error can be rectified.
                 RegionWildfireAdvisory regionToAdd = new RegionWildfireAdvisory {WildfireAdvisoryId = WildfireAdvisory.WildfireAdvisoryId, RegionId = RegionIdToAdd};
                 _context.Add(regionToAdd);
                 _context.SaveChanges();

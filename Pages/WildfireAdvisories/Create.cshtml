@@ -38,6 +38,7 @@
                 <input asp-for="WildfireAdvisory.ContactPhoneNumber" class="form-control" placeholder="Provide a public contact number" />
                 <span asp-validation-for="WildfireAdvisory.ContactPhoneNumber" class="text-danger"></span>
             </div>
+            @*Implemented multiple region input due to M:N relationship between region and wildfire advisories*@
             <label class="control-label">Region(s)</label>
             <select asp-items="Model.RegionsDropDown" asp-for="RegionIdToAdd" class = "form-control">
                 <option value = "">Select a region</option>

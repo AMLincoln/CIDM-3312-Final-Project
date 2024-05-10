@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -22,21 +18,28 @@ namespace CIDM_3312___Final_Project.Pages.WildfireAdvisories
             _logger = logger;
         }
         public List<Region> Regions {get; set;} = default!;
+
+         // Implemented multiple region input due to M:N relationship between region and wildfire advisories
         public SelectList RegionsDropDown {get; set;} = default!;
         public SelectList RegionsDropDown2 {get; set;} = default!;
         public SelectList RegionsDropDown3 {get; set;} = default!;
         public SelectList RegionsDropDown4 {get; set;} = default!;
         public SelectList RegionsDropDown5 {get; set;} = default!;
+
         [BindProperty]
         [Required]
         [Display(Name = "first Region")]
         public int RegionIdToAdd {get; set;}
+
         [BindProperty]
         public int? RegionIdToAdd2 {get; set;}
+
         [BindProperty]
         public int? RegionIdToAdd3 {get; set;}
+
         [BindProperty]
         public int? RegionIdToAdd4 {get; set;}
+
         [BindProperty]
         public int? RegionIdToAdd5 {get; set;}
         public IActionResult OnGet()

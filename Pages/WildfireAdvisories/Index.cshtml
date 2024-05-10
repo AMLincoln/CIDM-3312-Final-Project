@@ -1,3 +1,4 @@
+@*Solution for integrating sorting, filtering, pagination, and conditional disabling of buttons taken from https://learn.microsoft.com/en-us/aspnet/core/data/ef-rp/sort-filter-page?view=aspnetcore-8.0*@
 @page
 @model CIDM_3312___Final_Project.Pages.WildfireAdvisories.IndexModel
 
@@ -27,13 +28,6 @@
                 @Html.DisplayNameFor(model => model.WildfireAdvisory[0].Title)
             </th>
             <th>
-                @*@{
-                    var firstSort = "first_asc";
-                    if (Model.SortOrder == "first_asc")
-                    {
-                        firstSort = "first_desc";
-                    }
-                }*@
                 <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort" asp-route-currentFilter="@Model.CurrentFilter">
                 @Html.DisplayNameFor(model => model.WildfireAdvisory[0].IssueDateAndTime)</a>
             </th>
@@ -51,10 +45,10 @@
                 @Html.DisplayFor(modelItem => item.IssueDateAndTime)
             </td>
             <td>
-            @foreach (var region in item.RegionWildfireAdvisories!)
-            {
-                @region.Region.Name <br>
-            }
+                @foreach (var region in item.RegionWildfireAdvisories!)
+                {
+                    @region.Region.Name <br>
+                }
             </td>
             <td>
                 <a asp-page="./Details" asp-route-id="@item.WildfireAdvisoryId">Details</a> |
@@ -70,20 +64,6 @@
     var prevDisabled = !Model.WildfireAdvisories.HasPreviousPage ? "disabled" : "";
     var nextDisabled = !Model.WildfireAdvisories.HasNextPage ? "disabled" : "";
 }
-@*@{
-    var prevDisabled = "";
-    if (Model.PageNum <=1)
-    {
-        prevDisabled = "disabled";
-    }
-}
-@{
-    var nextDisabled = "";
-    if (Model.PageNum >= Model.PageMax)
-    {
-        nextDisabled = "disabled";
-    }
-}*@
 <nav aria-label="Page navigation">
     <ul class="pagination">
         <li class="page-item @prevDisabled"><a class="page-link" asp-page="./Index" asp-route-sortOrder="@Model.CurrentSort" asp-route-pageIndex="@(Model.WildfireAdvisories.PageIndex - 1)" asp-route-currentFilter="@Model.CurrentFilter">Previous</a></li>

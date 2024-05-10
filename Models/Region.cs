@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-
 namespace CIDM_3312___Final_Project.Models
 {
     public class Region
